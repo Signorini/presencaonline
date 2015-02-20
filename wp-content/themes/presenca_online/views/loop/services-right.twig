@@ -1,0 +1,23 @@
+<div class="container service">
+    <a href="{{ service.link }}" class="bg-img bg-img-strategy" style="background-image:url('{{ service.thumbnail.src|resize(1100, 569) }}');">
+        <div class="overlay">
+            <span class="plus">+</span>
+        </div>
+    </a>
+    <div class="service-wrap right">
+        <h2 class="heading-h2 right">{{ service.title }}</h2>
+        <p class="service-p right">
+            {{ function('get_post_meta', service.id, '_yoast_wpseo_metadesc', true) }}
+        </p>
+        <a href="{{ service.link }}" class="service-link btn-main right" title="{{ service.title }}">
+            Saiba mais
+				<span class="circle-arrow-box">
+					<span class="circle-arrow-wrap">
+						<span class="circle-arrow first">›</span>
+						<span class="circle-arrow">›</span>
+					</span>
+				</span>
+        </a>
+        <hr class="right">
+    </div>
+</div><!-- END SERVICE -->

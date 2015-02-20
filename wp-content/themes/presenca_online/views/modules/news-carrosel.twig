@@ -1,0 +1,47 @@
+{% if news %}
+		<div id="carousel-news-list" class="carousel slide" data-ride="carousel">
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner margin">
+              {% set i=1 %}
+              {% for key, new in news %}
+    {% if i == 1 %}
+        <div class="item {{ key ==0 ? 'active' : '' }}">
+    {% endif %}
+
+    <div class="col-md-4">
+        {% include 'loop/news.twig' %}
+    </div>
+
+    {% if i % 3 == 0 %}
+        </div><!-- end item inner -->
+        {% set i=1 %}
+    {% else %}
+        {% set i=i+1 %}
+    {% endif %}
+{% endfor %}
+
+              {% if i != 1 %}
+    </div> <!-- end item out caso o item não é fechado, fechase a tag-->
+{% endif %}
+		  </div><!-- END CAROUSEL-INNER -->
+
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators carousel-indicators-more-cases large">
+              {% if news|length >=4 %}
+    <li data-target="#carousel-news-list" data-slide-to="0" class="active"></li>
+{% endif %}
+              {% if news|length >=4 %}
+    <li data-target="#carousel-news-list" data-slide-to="1"></li>
+{% endif %}
+              {% if news|length >=7 %}
+    <li data-target="#carousel-news-list" data-slide-to="2"></li>
+{% endif %}
+		  </ol>
+
+        {% if news|length >=4 %}
+    <a class="left carousel-control carousel-control-more-cases" href="#carousel-news-list" role="button" data-slide="prev">‹</a>
+    <a class="right carousel-control carousel-control-more-cases" href="#carousel-news-list" role="button" data-slide="next">›</a>
+{% endif %}
+
+		</div><!-- END CAROUSEL -->
+    {% endif %}

@@ -1,0 +1,26 @@
+<div class="featured-new">
+
+	<div class="news-info">
+        {% if new.terms('category') %}
+		<span class="news-tag">
+            {% for cat in new.terms('category') %}
+                <a href="{{cat.link}}" title="Veja todos - {{ cat.name }}">{{cat.name|upper}}</a>
+            {% endfor %}
+        </span>
+        {% endif %}
+		<span class="news-date">{{ post.post_date|date }}</span>
+	</div><!-- END NEWS-INFO -->
+
+	<div class="relative">
+        <a href="{{ new.link }}">
+        <img src="{{ new.thumbnail.src|resize(626,268, 'center') }}" alt="{{ new.title }}" class="img-responsive" />
+        </a>
+
+		<div class="news-content">
+			<h3 class="news-title">{{ new.title }}</h3>
+			<p class="news-text">{{ function('get_post_meta', new.id, '_yoast_wpseo_metadesc', true)|slice(0, 180) }}</p>
+            <a href="{{ new.link }}" class="news-link">Saiba mais > </a>
+		</div><!-- END NEWS-CONTENT -->
+	</div>
+
+</div><!-- END FEATURED-NEW -->

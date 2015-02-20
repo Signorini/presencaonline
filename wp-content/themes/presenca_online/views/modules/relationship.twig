@@ -1,0 +1,49 @@
+<section id="relationship">
+	<h1 class="heading-h1">Relacionamento</h1>
+
+	<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+                    {% include 'form/newsletter.twig' %}
+				</div><!-- END COL -->
+				<div class="col-md-6 hidden-sm">
+                    {% include 'modules/social_like_box.twig' %}
+				</div>
+			</div><!-- END ROW -->
+
+        {% if news %}
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="heading-h2 news-heading">News/ Material/ Blog</h2>
+			</div>
+
+            {% for new in news %}
+                <div class="col-md-4">
+                    {% include 'loop/news.twig' %}
+                </div><!-- END COL -->
+            {% endfor %}
+
+			<div class="col-md-12">
+				<div class="wrap-news-btn">
+					<a href="{{ site.url }}/artigos" class="btn-main news-btn">
+						Leia mais
+						<span class="circle-arrow-box">
+							<span class="circle-arrow-wrap">
+								<span class="circle-arrow first">›</span>
+								<span class="circle-arrow">›</span>
+							</span>
+						</span>
+					</a>
+					<div class="news-hr">
+						<hr class="right">
+					</div>
+					
+				</div>
+			</div>
+			
+		</div><!-- END ROW -->
+        {% endif %}
+		
+	</div><!-- END CONTAINER -->
+
+</section>

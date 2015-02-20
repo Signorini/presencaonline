@@ -1,0 +1,34 @@
+<div class="media-description mt10" href="#">
+    <img class="media-object img-responsive img-circle" src="{{ author_image|resize(300, 300, 'center') }}" alt="{{ post.author.name|capitalize }}">
+    <h3 class="speaker-name">{{ post.author.name|capitalize }}</h3>
+    {% if post.author.wpseo_metadesc %}
+        <p class="speaker-description">
+            {{ post.author.wpseo_metadesc }}
+        </p>
+    {% endif %}
+    <ul class="social-list primary">
+        {% if post.author.facebook %}
+            <li><a href="{{ post.author.facebook }}">
+                    <i class="fa fa-facebook"></i>
+                </a></li>
+        {% endif %}
+
+        {% if post.author.twitter %}
+            <li><a href="https://www.twitter.com/{{ post.author.twitter }}">
+                    <i class="fa fa-twitter"></i>
+                </a></li>
+        {% endif %}
+
+        {% if post.author.googleplus %}
+            <li><a href="{{ post.author.googleplus }}">
+                    <i class="fa fa-google-plus"></i>
+                </a></li>
+        {% endif %}
+
+        {% if author_linked %}
+            <li><a href="{{ author_linked }}">
+                    <i class="fa fa-linkedin"></i>
+                </a></li>
+        {% endif %}
+    </ul>
+</div><!-- END MEDIA-DESCRIPTION -->

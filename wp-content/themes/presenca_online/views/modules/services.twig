@@ -1,0 +1,16 @@
+{% if services %}
+<section id="services">
+	<h1 class="heading-h1">Serviços</h1>
+
+    {% for key, service in services %}
+
+        {% if key % 2==0 %}
+            {% include 'loop/services-left.twig' %}
+        {% else %}
+            {% include 'loop/services-right.twig' %}
+        {% endif %}
+
+    {% endfor %}
+
+</section>
+{% endif %}

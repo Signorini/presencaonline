@@ -1,0 +1,54 @@
+{% if news %}
+<div class="row">
+    {% for key, new in news %}
+        {% if key % 3 == 0 and key!=0 %}
+            <div class="clear col-xs-12 margin"></div>
+        {% endif %}
+
+        <div class="col-md-4 margin">
+            {% include 'loop/news.twig' %}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+{% if pagination.prev %}
+    <div class="row">
+        <div class="wrap-news-btn">
+            <a href="{{ pagination.prev.link }}" class="btn-main news-btn">
+                Veja mais itens antigos
+                <span class="circle-arrow-box">
+                    <span class="circle-arrow-wrap">
+                        <span class="circle-arrow first">›</span>
+                        <span class="circle-arrow">›</span>
+                    </span>
+                </span>
+            </a>
+            <div class="news-hr">
+                <hr class="right">
+            </div>
+
+        </div>
+    </div>
+{% endif %}
+
+{% if pagination.next %}
+    <div class="row">
+        <div class="wrap-news-btn">
+            <a href="{{ pagination.next.link }}" class="btn-main news-btn">
+                Veja mais novos itens
+                <span class="circle-arrow-box">
+                    <span class="circle-arrow-wrap">
+                        <span class="circle-arrow first">›</span>
+                        <span class="circle-arrow">›</span>
+                    </span>
+                </span>
+            </a>
+            <div class="news-hr">
+                <hr class="right">
+            </div>
+
+        </div>
+    </div>
+{% endif %}

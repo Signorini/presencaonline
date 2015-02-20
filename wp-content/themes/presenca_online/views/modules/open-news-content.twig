@@ -1,0 +1,51 @@
+<section class="case-content wrap-content">
+	<div class="container">
+
+        {% if subtitle or intro %}
+		<div class="row">
+			<div class="col-md-8">
+                {% if subtitle %}
+				<h2 class="title-small">
+                    {{ subtitle }}
+				</h2>
+                {% endif %}
+
+                {% if intro %}
+				<div class="text-main">
+                    {{ intro }}
+				</div>
+                {% endif %}
+			</div><!-- END COL -->
+
+			<div class="col-md-4 mt20">
+                {% include 'modules/author-box.twig' %}
+			</div>
+		</div><!-- END ROW -->
+        {% endif %}
+
+		<div class="open-news-wrap">
+            {% if call_1 %}
+			<h2 class="light-heading">{{ call_1 }}</h2>
+            {% endif %}
+
+			<div class="row">
+				<div class="col-md-8">
+					<div class="text-main">
+						{{ post.content }}
+					</div>
+				</div><!-- END COL-->
+
+				<div class="col-md-4">
+
+				</div>
+
+			</div><!-- END ROW-->
+
+            {% if call_2 %}
+            <h2 class="light-heading">{{ call_2 }}</h2>
+            {% endif %}
+
+		</div><!-- END OPEN-NEWS-WRAP -->
+
+	</div><!-- END CONTAINER -->
+</section>

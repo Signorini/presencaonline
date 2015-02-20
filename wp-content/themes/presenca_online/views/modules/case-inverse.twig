@@ -1,0 +1,16 @@
+<div class="case inverse">
+
+        {% if post.box_imagem.src %}
+             <img src="{{ post.box_imagem.src|resize(298, 278) }}" class="img-responsive" />
+        {% elseif post.youtube %}
+            <div class="responsive-video">
+                {{ function('getEmbedLinkYoutube', post.youtube) }}
+            </div>
+        {% endif %}
+
+
+    <div class="news-content">
+		<h3 class="news-title">{{ box_title }}</h3>
+		<p class="news-text">{{ box_text }}</p>
+    </div>
+</div>

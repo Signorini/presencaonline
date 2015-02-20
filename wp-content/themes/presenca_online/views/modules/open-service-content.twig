@@ -1,0 +1,37 @@
+<article class="container open-service-content">
+	<div class="row">
+		<div class="col-md-12">
+            <h3 class="light-heading">
+                {{ post.title }}
+            </h3>
+
+            {% if intro %}
+			<h4 class="title-small two-columns">
+				{{ intro }}
+		   	</h4>
+            {% endif %}
+		</div><!-- END COL -->
+	</div><!-- END ROW -->
+
+
+	<div class="hero-bg open-service-bg" style="background-image:url('{{ post.thumbnail.src|resize(954, 568) }}');"></div>
+
+    {% if subtitle %}
+	<h3 class="light-heading">
+		{{ subtitle }}
+	</h3>
+    {% endif %}
+
+	<div class="row relative">
+		<div class="col-md-4 col-bottom">
+            {% if box_title %}
+                {% include 'modules/case-inverse.twig' %}
+            {% endif %}
+		</div>
+		<div class="col-md-8 pull-right">
+			<div class="text-main">
+				{{ post.content }}
+			</div>
+		</div>
+	</div>
+</article>

@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    {% include 'modules/menu-fixed.twig' %}
+
+    <section class="container news-list-content">
+        <h1 class="heading-h1">{{ function('get_title_title') }}</h1>
+
+        <h2 class="heading-h2">{{ function('get_title_anywhere') }}</h2>
+
+        {% if function('is_paged') %}
+            {% include 'modules/news-list-content-paged.twig' %}
+        {% else %}
+            {% include 'modules/news-list-content.twig' %}
+        {% endif %}
+    </section>
+
+
+{% endblock %}

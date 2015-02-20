@@ -1,0 +1,38 @@
+<div class="search">  
+  {% include 'form/search.twig' %}
+
+  <ul class="nav nav-tabs" role="tablist">
+      {% if categories %}
+            <li class="active"><a href="#search-category" role="tab" data-toggle="tab">Categoria</a></li>
+      {% endif %}
+      {% if tags %}
+  	        <li><a href="#search-tag" role="tab" data-toggle="tab">Tag</a></li>
+      {% endif %}
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+   {% if categories %}
+    <div class="tab-pane active" id="search-category">
+    	<ul>
+            {% if categories %}
+                {% for category in categories %}
+                    <li><a href="{{ category.link }}">{{ category.title }}</a></li>
+                {% endfor %}
+            {% endif %}
+    	</ul>
+    </div>
+   {% endif %}
+
+    {% if tags %}
+    <div class="tab-pane" id="search-tag">
+    	<ul>
+            {% for tag in tags %}
+                <li><a href="{{ tag.link }}">{{ tag.title }}</a></li>
+            {% endfor %}
+    	</ul>
+    </div>
+    {% endif %}
+  </div><!-- END TAB-CONTENT -->
+</div>

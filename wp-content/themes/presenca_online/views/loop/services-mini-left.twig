@@ -1,0 +1,25 @@
+<div class="container open-service service">
+    <a href="{{ service.link }}" class="bg-img height bg-img-operation" style="background-image:url('{{ service.thumbnail.src|resize(1050, 401) }}');">
+        <div class="overlay small">
+            <span class="plus">+</span>
+        </div>
+    </a>
+    <div class="bg-height relative">
+        <div class="service-wrap left bottom">
+            <h2 class="heading-h2">{{ service.title }}</h2>
+            <p class="service-p service-p-height">
+                {{ function('get_post_meta', service.id, '_yoast_wpseo_metadesc', true) }}
+            </p>
+            <a href="{{ service.link }}" class="service-link btn-main left" title="{{ service.title }}">
+                Saiba mais
+					<span class="circle-arrow-box">
+						<span class="circle-arrow-wrap">
+							<span class="circle-arrow first">›</span>
+							<span class="circle-arrow">›</span>
+						</span>
+					</span>
+            </a>
+            <hr class="left">
+        </div>
+    </div>
+</div><!-- END SERVICE -->

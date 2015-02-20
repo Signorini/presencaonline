@@ -1,0 +1,38 @@
+<div class="hero clearfix" id="hero">
+    <div class="container container-nav">
+        <nav class="main-nav">
+            <div class="navbar-header">
+
+                <div class="po-logo-mobile">
+                    <a href="{{ site.url }}" title="Presença Online - {{ function('bloginfo', 'description') }}">
+                    <img src="{{ bloginfo('template_url') }}/assets/imgs/po-logo.png" alt="Presença Online" class="img-responsive">
+                    </a>
+                </div>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".main-nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse main-nav-collapse">
+                {% include 'modules/menu/menu_primary.twig' %}
+            </div>
+        </nav>
+    </div><!-- END CONTAINER -->
+
+    <div class="container">
+        <div class="po-logo">
+            <a href="{{ site.url }}" title="Presença Online - {{ function('bloginfo', 'description') }}">
+                <img src="{{ bloginfo('template_url') }}/assets/imgs/po-logo.png" alt="Presença Online" class="img-responsive">
+            </a>
+        </div>
+
+        <h2 class="hero-heading">
+            {{ function('get_custom', 'call') }}
+        </h2>
+    </div><!-- END CONTAINER -->
+</div><!--END HERO -->
+
+{% include 'modules/menu.twig' %}

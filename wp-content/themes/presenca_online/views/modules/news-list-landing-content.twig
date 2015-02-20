@@ -1,0 +1,75 @@
+{% if primarie %}
+    {% set new=primarie[0] %}
+    <div class="row margin">
+        <div class="col-md-8 margin">
+            {% include 'loop/featured-news.twig' %}
+        </div><!-- END COL -->
+
+        {% if primarie|length >=2 %}
+        <div class="col-md-4 margin">
+            {% set new=primarie[1] %}
+            {% include 'loop/news.twig' %}
+        </div><!-- EN COL -->
+        {% endif %}
+    </div>
+
+    {% if primarie|length >=3 %}
+    <div class="row margin">
+        {% if primarie|length >=3 %}
+            {% set new=primarie[2] %}
+            <div class="col-md-4">
+                {% include 'loop/news.twig' %}
+            </div><!-- END COL -->
+        {% endif %}
+
+        {% if primarie|length >=4 %}
+            {% set new=primarie[3] %}
+            <div class="col-md-8">
+                {% include 'loop/featured-news.twig' %}
+            </div><!-- END-COL -->
+        {% endif %}
+    </div><!-- END ROW -->
+    {% endif %}
+
+{% else %}
+    <div class="well alert alert-danger">
+        <h3>Desculpe não encontramos nenhum conteúdo, por favor procure por outro termo</h3>
+        <div class="search">
+            {% include 'form/search.twig' %}
+        </div>
+    </div>
+{% endif %}
+
+{% include 'modules/news-carrosel.twig' %}
+
+{% if pagination.next %}
+    <div class="row">
+        <div class="wrap-news-btn">
+            <a href="{{ pagination.next.link }}" class="btn-main news-btn">
+                Veja mais itens
+                <span class="circle-arrow-box">
+                    <span class="circle-arrow-wrap">
+                        <span class="circle-arrow first">›</span>
+                        <span class="circle-arrow">›</span>
+                    </span>
+                </span>
+            </a>
+            <div class="news-hr">
+                <hr class="right">
+            </div>
+
+        </div>
+    </div>
+{% endif %}
+
+{% include 'modules/news-related.twig' %}
+
+ <div class="row margin">
+    <div class="col-md-6">
+        {% include 'form/newsletter.twig' %}
+    </div>
+
+    <div class="col-md-6">
+        {% include 'modules/social_like_box.twig' %}
+    </div><!-- END COL -->
+</div>

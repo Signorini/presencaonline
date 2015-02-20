@@ -1,0 +1,53 @@
+{% if related_news %}
+<section class="related">
+	<h2 class="heading-h2">{{ news_related_title|default('Últimas notícias:') }}</h2>
+	<div class="related-news">
+		<div id="carousel-related-news" class="carousel slide" data-ride="carousel">
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+              {% set i=1 %}
+              {% for key, new in related_news %}
+                  {% if i == 1 %}
+                      <div class="item {{ key ==0 ? 'active' : '' }}">
+                  {% endif %}
+
+                      <div class="col-md-4">
+                          {% include 'loop/news.twig' %}
+                      </div>
+
+                  {% if i % 3 == 0 %}
+                      </div><!-- end item inner -->
+                      {% set i=1 %}
+                  {% else %}
+                      {% set i=i+1 %}
+                  {% endif %}
+              {% endfor %}
+
+              {% if i != 1 %}
+                  </div> <!-- end item out caso o item não é fechado, fechase a tag-->
+              {% endif %}
+		  </div><!-- END CAROUSEL-INNER -->
+
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators carousel-indicators-more-cases large">
+            {% if related_news|length >=4 %}
+		        <li data-target="#carousel-related-news" data-slide-to="0" class="active"></li>
+            {% endif %}
+            {% if related_news|length >=4 %}
+		        <li data-target="#carousel-related-news" data-slide-to="1"></li>
+            {% endif %}
+            {% if related_news|length >=7 %}
+		        <li data-target="#carousel-related-news" data-slide-to="2"></li>
+            {% endif %}
+		  </ol>
+
+          {% if related_news|length >=4 %}
+		  <!-- Controls -->
+		  <a class="left carousel-control carousel-control-more-cases" href="#carousel-related-news" role="button" data-slide="prev">‹</a>
+		  <a class="right carousel-control carousel-control-more-cases" href="#carousel-related-news" role="button" data-slide="next">›</a>
+          {% endif %}
+
+		</div><!-- END CAROUSEL -->
+	</div><!-- END RELATED-NEWS -->>
+</section>
+{% endif %}

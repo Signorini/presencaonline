@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+
+    {% include 'modules/menu-fixed.twig' %}
+    {% include 'modules/social-list-fixed.twig' %}
+    {% include 'modules/hero-landing-courses.twig' %}
+
+    {% include 'modules/landing-courses-content.twig' %}
+    {% include 'modules/hero-map-date.twig' %}
+
+    <div class="container">
+        {% include 'modules/signup.twig' %}
+    </div>
+
+    {% include 'modules/speakers.twig' %}
+    {% include 'modules/hero-more-details.twig' %}
+    {% include 'modules/snippet-lightbox-course-details.twig' %}
+    {% include 'modules/snippet-lightbox-signup.twig' %}
+
+
+{% endblock %}

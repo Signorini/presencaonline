@@ -1,0 +1,17 @@
+<div class="hero-bg hero-map">
+    <div class="container">
+        <div class="map-box">
+            <div class="contact-box">
+                <i class="fa fa-comment-o"></i>
+                <p class="fone"> {{ function('get_custom', 'phone_bussiness') }}
+                </p>
+                <p class="email">{{ function('get_custom', 'mail_bussiness') }}</p>
+
+                <address>{{ function('get_custom', 'address') }}</address>
+            </div>
+            
+            {% set social_like_box_width=300 %}
+            {% include 'modules/social_like_box.twig' %}
+        </div>
+    </div>
+</div>

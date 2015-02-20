@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    {% include 'modules/hero-home.twig' %}
+    {% include 'modules/hero-who-we-are.twig' %}
+
+    {% include 'modules/who-we-are-content.twig' %}
+    {% include 'modules/snippet-carousel-clients.twig' %}
+    {% include 'modules/hero-coffee-who-we-are.twig' %}
+    {% include 'modules/speakers.twig' %}
+
+    <section>
+        <div class="container">
+            <h1 class="heading-h1">Veja nossos cases</h1>
+            {% include 'modules/snippet-carousel-more-cases.twig' %}
+        </div>
+    </section>
+
+    {% include 'modules/hero-map-contact.twig' %}
+
+{% endblock %}
