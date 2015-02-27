@@ -1,13 +1,19 @@
 <div class="hero-wrap">	
-	<div class="hero-bg hero-landing">
+	<div class="hero-bg hero-landing" style="background-image: url({{ TimberImage(post.get_field('imagem_fundo')).src }});">
 		<div class="container">
 			<h1 class="hero-title">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, aspernatur 
-				voluptatem!
+				{{ post.title }}
 			</h1>
-			<div class="hero-intro responsive-video">
-				<iframe src="//www.youtube.com/embed/jjRiPRnFB98" frameborder="0" allowfullscreen></iframe>
-			</div>
+
+            {% if post.video_principal %}
+                <div class="hero-intro responsive-video">
+                    {{ function('getEmbedLinkYoutube', post.video_principal) }}
+                </div>
+            {% elseif post.imagem_principal %}
+                <div class="hero-intro responsive-video">
+                    <img src="{{ TimberImage(post.get_field('imagem_principal')).src|resize(954, 550, 'center') }}" alt="{{ post.title }}" />
+                </div>
+            {% endif %}
 		</div>
 	</div>
 </div>

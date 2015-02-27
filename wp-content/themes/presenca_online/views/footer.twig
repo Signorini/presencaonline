@@ -1,4 +1,51 @@
-{% include 'modules/footer.twig' %}
+<footer class="footer">
+    <div class="container container-footer-intro">
+        <div class="row no-margin">
+            <div class="col-md-9 height no-padding">
+                <div class="footer-intro clearfix">
+                    <p class="footer-coffee" data-toggle="modal" data-target="#modal-contact">
+                        vamos tomar um café?
+                    </p>
+                    {% include 'modules/social_list.twig' %}
+                </div><!-- END FOOTER-INTRO -->
+            </div><!-- END COL -->
+        </div><!-- END ROW -->
+    </div><!-- END CONTAINER -->
+
+    <div class="footer-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="footer-infos">
+                        <span class="city">São Paulo - SP</span>
+                        <span><a href="mailto:contato@{{ function('get_custom', 'mail_bussiness') }}">{{ function('get_custom', 'mail_bussiness') }}</a></span>
+                        <span>{{ function('get_custom', 'phone_bussiness') }}</span>
+                    </p>
+
+                    {% for item in menu_footer.get_items %}
+                        <div class="footer-menu {{item.classes | join(' ')}}">
+                            <h4 class="footer-menu--title">{{item.title}}</h4>
+                            {% if item.get_children %}
+                                <ol class="breadcrumb">
+                                    {% for child in item.get_children %}
+                                        <li><a href="{{child.get_link}}">{{child.title}}</a></li>
+                                    {% endfor %}
+                                </ol>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                </div><!-- END COL -->
+            </div><!-- END ROW -->
+        </div><!-- END CONTAINER -->
+    </div><!-- END FOOTER-WRAP -->
+
+    <a href="#go-top" class="top">
+        <i class="fa fa-angle-up"></i>
+        Topo
+    </a>
+</footer>
+
 {% include 'modules/snippet-lightbox-contact.twig' %}
 
 {{ function('wp_footer') }}

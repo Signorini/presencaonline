@@ -1,0 +1,87 @@
+{% if clients %}
+    {% for key, client in clients %}
+        <div class="modal fade" id="modal-{{ client.slug }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="container">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal"><span class="close-x" aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+                        <div class="modal-body">
+
+                            <div id="carousel-client-css-{{ client.slug }}" class="carousel-clients carousel slide" data-ride="carousel">
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+
+                                    <div class="item active">
+
+                                        <h4 class="carousel-title">Sobre</h4>
+
+                                        <div class="content-wrap">
+
+                                            <span><img src="{{ client.thumbnail.src|resize(132, null, 'center') }}" alt="{{ client.title }}"></span>
+
+                                            <p class="carousel-description">
+                                                {{ client.title }}
+                                            </p>
+
+                                            <p>
+                                                {{ client.get_preview(350, false, '') }}
+                                            </p>
+                                        </div>
+                                    </div><!-- ITEM -->
+
+                                    {% if client.client_cases %}
+                                    <div class="item">
+                                        <h4 class="carousel-title">Veja os cases</h4>
+
+                                        <div class="row">
+
+                                            {% for case in client|getCasesClients() %}
+                                                <div class="col-md-4">
+                                                    {% include 'modules/case.twig' %}
+                                                </div><!-- END COL -->
+                                            {% endfor %}
+
+                                        </div>
+                                    </div><!-- END ITEM -->
+                                    {% endif %}
+
+                                    {% if client.client_news %}
+                                    <div class="item">
+                                        <h4 class="carousel-title">Veja as noticias</h4>
+
+                                        <div class="row">
+                                            {% for news in client|getNewsClients() %}
+                                            <div class="col-md-4">
+                                                {% include 'modules/news.twig' %}
+                                            </div><!-- END COL -->
+                                            {% endfor %}
+                                        </div>
+                                    </div><!-- END ITEM -->
+                                    {% endif %}
+
+                                </div><!-- END CAROUSEL-INNER -->
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-client-css-{{ client.slug }}" role="button" data-slide="prev">‹</a>
+                                <a class="right carousel-control" href="#carousel-client-css-{{ client.slug }}" role="button" data-slide="next">›</a>
+
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators large">
+                                    <li data-target="#carousel-client-css-{{ client.slug }}" data-slide-to="0" class="active"></li>
+                                    {% if client.client_cases %}
+                                        <li data-target="#carousel-client-css-{{ client.slug }}" data-slide-to="1"></li>
+                                    {% endif %}
+                                    {% if client.client_news %}
+                                        <li data-target="#carousel-client-css-{{ client.slug }}" data-slide-to="2"></li>
+                                    {% endif %}
+                                </ol>
+                            </div><!-- END CAROUSEL -->
+                        </div>
+                    </div><!-- END MODAL-CONTENT -->
+                </div><!-- END CONTAINER -->
+            </div><!-- END MODAL-DIALOG -->
+        </div><!-- END MODAL -->
+        {% endfor %}
+{% endif %}

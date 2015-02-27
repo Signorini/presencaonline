@@ -4,6 +4,7 @@ register_nav_menu( 'footer', 'Menu Rodapé');
 
 add_action( 'wp_enqueue_scripts', 'scripts_style');
 add_action('init', 'init_registers');
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 
 add_filter( 'wp_mail_content_type', 'set_html_content_type' );
 add_action('after_setup_theme', 'remove_admin_bar');
@@ -36,6 +37,12 @@ function scripts_style() {
     wp_enqueue_script('placeholder', get_bloginfo('template_url') .'/assets/js/vendor/placeholder.js', array('jquery'), null, true);
     wp_enqueue_script('mobile', get_bloginfo('template_url') .'/assets/js/vendor/jquery.mobile.custom.min.js', array('jquery', 'boostrap'), null, true);
     wp_enqueue_script('main', get_bloginfo('template_url') .'/assets/js/main.js', array('jquery', 'boostrap', 'mobile', 'placeholder'), null, true);
+}
+
+function my_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'content-image' => __( 'Imagem de texto' ),
+    ) );
 }
 
 

@@ -1,0 +1,24 @@
+<div class="news">
+    <div class="news-info">
+        <span class="news-tag">tag da notícia</span>
+        <span class="news-date">13 mar 2014</span>
+    </div>
+    <div class="relative">
+        <a href="{{ news.link }}" title="{{ news.title }}">
+        <div class="overlay-img">
+            <div class="overlay-content">
+                <span class="plus-sm">+</span>
+            </div>
+        </div>
+
+        <img src="{{ news.thumbnail.src|resize(298, 134) }}" alt="{{ news.thumbnail.alt }}" class="img-responsive">
+        </a>
+    </div>
+    <div class="news-content">
+
+        <h3 class="news-title"><a href="{{ news.link }}" class="news-title" title="{{ news.title }}">{{ news.title }}</a></h3>
+
+        <p class="news-text">{{ news.get_preview(10, false, '') }}</p>
+        <a href="{{ news.link }}" class="news-link" title="{{ news.title }}">Saiba mais > </a>
+    </div>
+</div><!-- END NEW -->

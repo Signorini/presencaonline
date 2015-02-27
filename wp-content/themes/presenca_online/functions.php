@@ -8,6 +8,7 @@ add_editor_style();
 
 
 add_theme_support('post-thumbnails');
+add_image_size( 'content-image', 623);
 
 add_theme_support('menus');
 

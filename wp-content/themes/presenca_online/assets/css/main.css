@@ -630,11 +630,11 @@ button.close:hover {
 }
 
 .hero-wrap {
-   min-height: 865px;
+   min-height: 760px;
    margin-bottom: 30px;
    /* IE8 FIX */
    height: auto !important;
-   height: 865px;
+   height: 760px;
    overflow: hidden;
 }
 
@@ -894,6 +894,10 @@ button.close:hover {
    text-transform: uppercase;
    font-size: 24px;
    line-height: 1.3em;
+}
+
+.news-title a {
+    color: #3c3c3c;
 }
 
 .news-text {
@@ -1212,6 +1216,10 @@ div.wpcf7-response-output {
    text-align: center;
 }
 
+.carousel-inner img {
+    margin:0 auto;
+}
+
 .btn-carousel-lightbox {
    padding: 15px 100px 15px 120px;
 }
@@ -1245,7 +1253,6 @@ div.wpcf7-response-output {
 }
 
 .case-content .title-small {
-   margin-top: 60px;
 }
 
 /* ==========================================================================
@@ -1343,7 +1350,7 @@ div.wpcf7-response-output {
 }
 
 .hero-landing {
-   background-image: url(../imgs/hero-landing.jpg);
+   background: #c0c0c0;
    padding-top: 50px;
 }
 
@@ -1394,7 +1401,9 @@ div.wpcf7-response-output {
    height: 180px;
    text-align: center;
    line-height: 165px;
-   margin: 0 36px; 
+   margin: 0 36px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .carousel-title {
@@ -1470,6 +1479,71 @@ div.wpcf7-response-output {
    clear: both;
    font-size: 24px;
    font-weight: bold;
+}
+
+/* ==========================================================================
+   =CAROUSEL-CLIENTS
+   ========================================================================== */
+.carousel-clients .carousel-indicators {
+    position: static;
+    margin: 50px auto;
+}
+
+.carousel-clients .carousel-control {
+    top: 96%;
+}
+
+.carousel-clients .carousel-control.left {
+    left: 30%;
+}
+
+.carousel-clients .carousel-control.right {
+    right: 30%;
+}
+
+.carousel-clients .content-wrap {
+    position: relative;
+}
+
+.carousel-clients .content-wrap span {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    text-align: center;
+    line-height: 165px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -44px;
+    overflow: hidden;
+}
+
+.carousel-clients .content-wrap p {
+    width: 75%;
+    float: right;
+    margin: 20px 0;
+}
+
+
+.carousel-clients .case {
+    background-color: #fff;
+    color: #3c3c3c;
+    margin: 20px 0;
+}
+
+.carousel-clients .news-text {
+    float: none;
+}
+
+.carousel-clients .news {
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+
+.carousel-clients .news-info {
+    display: none;
 }
 
 /* ==========================================================================

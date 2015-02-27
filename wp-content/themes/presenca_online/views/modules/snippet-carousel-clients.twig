@@ -1,55 +1,28 @@
 <div id="carousel-landing" class="carousel no-mb carousel-landing slide" data-ride="carousel">
-  <!-- Indicators -->
+
+  {% if clients|length >4 %}
   <ol class="carousel-indicators large">
-    <li data-target="#carousel-landing" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-landing" data-slide-to="1"></li>
-    <li data-target="#carousel-landing" data-slide-to="2"></li>
+    {% for i in 1..(clients|length/4)|ceil %}
+        <li data-target="#carousel-landing" data-slide-to="{{ i-1 }}" class="{{ i==1?"active":"" }}"></li>
+    {% endfor %}
   </ol>
+  {% endif %}
 
   <div class="carousel-bg">
     <div class="container">
       <h2 class="carousel-title">Clientes</h2>
       <p class="carousel-description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque numquam sint 
-        quae id suscipit doloremque, culpa molestiae fugit laudantium! Deleniti?
+          {{ function('get_custom', 'clients_call') }}
       </p>
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-        <div class="item active">
-
-          <ul class="carousel-clients-list">
-            <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-noticias-acre.png" alt="marca noticias acre"></li>
-            <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-rondonia-360.png" alt="marca rondonia 360"></li>
-            <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-movimento-ficha-limpa.png" alt="marca movimento ficha limpa"></li>
-            <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-css.png" alt="marca css"></li>
-          </ul>
-          
-        </div><!-- ITEM -->
-        <div class="item">
-          
-              <ul class="carousel-clients-list">
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-noticias-acre.png" alt="marca noticias acre"></li>
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-rondonia-360.png" alt="marca rondonia 360"></li>
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-movimento-ficha-limpa.png" alt="marca movimento ficha limpa"></li>
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-css.png" alt="marca css"></li>
-              </ul>
-
-        </div><!-- END ITEM -->
-        <div class="item">
-          
-              <ul class="carousel-clients-list">
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-noticias-acre.png" alt="marca noticias acre"></li>
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-rondonia-360.png" alt="marca rondonia 360"></li>
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-movimento-ficha-limpa.png" alt="marca movimento ficha limpa"></li>
-                <li><img src="{{ bloginfo('template_url') }}/assets/imgs/marca-css.png" alt="marca css"></li>
-              </ul>
-
-        </div><!-- END ITEM -->
+          {% include 'loop/carrosel-clients.twig' %}
       </div><!-- END CAROUSEL-INNER -->
     </div><!-- END CONTAINER -->
   </div><!-- END CAROUSEL-BG -->
 
-  <!-- Controls -->
+    {% if clients|length >4 %}
     <a class="left carousel-control" href="#carousel-landing" role="button" data-slide="prev">‹</a>
     <a class="right carousel-control" href="#carousel-landing" role="button" data-slide="next">›</a>
+    {% endif %}
 </div><!-- END CAROUSEL -->

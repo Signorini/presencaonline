@@ -1,0 +1,27 @@
+{% set x=1 %}
+{% for key, client in clients %}
+
+    {% if x==1 %}
+        <div class="item {{ key==0?"active":"" }}">
+            <ul class="carousel-clients-list">
+    {% endif %}
+
+    <li data-toggle="modal" data-target="#modal-{{ client.slug }}">
+       <img src="{{ client.thumbnail.src|resize(132, null, 'center') }}" alt="{{ client.title }}">
+    </li>
+
+
+    {% if x % 4 == 0 %}
+            </ul>
+        </div>
+        {% set x=1 %}
+    {% else %}
+        {% set x=x+1 %}
+    {% endif %}
+
+{% endfor %}
+
+{% if x != 1 %}
+        </ul>
+    </div> <!-- end item out caso o item não é fechado, fechase a tag-->
+{% endif %}

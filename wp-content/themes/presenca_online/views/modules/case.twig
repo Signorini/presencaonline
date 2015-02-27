@@ -1,0 +1,15 @@
+<div class="case">
+
+    {% if case.youtube %}
+        <div class="responsive-video">
+            {{ function('getEmbedLinkYoutube', case.youtube) }}
+        </div>
+    {% elseif case.box_imagem %}
+        <img src="{{ TimberImage(case.box_imagem)|resize(298, 218) }}" class="img-responsive" />
+    {% endif %}
+
+    <div class="news-content">
+        <h3 class="news-title">{{ case.title }}</h3>
+        <p class="news-text">{{ case._yoast_wpseo_metadesc }}</p>
+    </div>
+</div>
