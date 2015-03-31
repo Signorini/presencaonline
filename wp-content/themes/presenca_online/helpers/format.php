@@ -25,6 +25,10 @@ function get_title_anywhere() {
         $str=get_the_title();
     }
 
+    if(is_page()) {
+        $str = "Todos os artigos";
+    }
+
     if(is_tax()) {
         global $wp_query;
         $term = $wp_query->get_queried_object();
@@ -72,6 +76,10 @@ function get_title_title() {
     }
 
     if(is_tax()) {
+        $str = "Artigos";
+    }
+
+    if(is_page()) {
         $str = "Artigos";
     }
 

@@ -9,6 +9,9 @@ add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 add_filter( 'wp_mail_content_type', 'set_html_content_type' );
 add_action('after_setup_theme', 'remove_admin_bar');
 
+if ( ! isset( $content_width ) )
+    $content_width = 640;
+
 
 
 function init_registers() {

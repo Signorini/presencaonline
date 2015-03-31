@@ -1,43 +1,44 @@
+{% if users %}
 <section class="speakers">
 	<div class="container">
 		<h1 class="light-heading">Palestrantes</h1>
 
-		<div class="media">
-			<div class="row">
-				<div class="col-md-6">
-                    {% include 'modules/speaker-profile.twig' %}
-		  		</div><!-- END COL -->
+        {% for key, user in users %}
+            <div class="media">
+                <div class="row">
+                    {{ dump(user) }}
+                    {% if key%2==0 %}
+                        <div class="col-md-6">
+                            {% include 'modules/speaker-profile.twig' %}
+                        </div><!-- END COL -->
 
-		  		<div class="col-md-6">
-				  	<div class="media-body">
-					    <p class="speaker-text">
-					    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eius eaque libero, 
-					    	ad voluptatem corporis vero praesentium facere consequatur. Quibusdam corrupti 
-					    	aliquam consectetur voluptatibus perferendis commodi itaque maxime eligendi, voluptates 
-					    	impedit mollitia qui facere eos tempore, repudiandae earum ipsa tempora!
-					    </p>
-				  	</div><!-- END MEDIA-BODY -->
-			  	</div><!-- END COL -->
-		  	</div><!-- END ROW-->
-		</div><!-- END MEDIA -->
+                        <div class="col-md-6">
+                            <div class="media-body">
+                                <p class="speaker-text">
+                                    {{ function('get_the_author_meta', 'description', user.ID) }}
+                                </p>
+                            </div><!-- END MEDIA-BODY -->
+                        </div><!-- END COL -->
 
-		<div class="media">
-			<div class="row">
-				<div class="col-md-6">
-				  	<div class="media-body">
-					    <p class="speaker-text">
-					    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eius eaque libero, 
-					    	ad voluptatem corporis vero praesentium facere consequatur. Quibusdam corrupti 
-					    	aliquam consectetur voluptatibus perferendis commodi itaque maxime eligendi, voluptates 
-					    	impedit mollitia qui facere eos tempore, repudiandae earum ipsa tempora!
-					    </p>
-				  	</div><!-- END MEDIA-BODY -->
-		  		</div><!-- END COL -->
+                    {% else %}
 
-		  		<div class="col-md-6">
-                    {% include 'modules/speaker-profile.twig' %}
-			  	</div><!-- END COL -->
-		  	</div><!-- END ROW-->
-		</div><!-- END MEDIA -->
+                        <div class="col-md-6">
+                            <div class="media-body">
+                                <p class="speaker-text">
+                                    {{ function('get_the_author_meta', 'description', user.ID) }}
+                                </p>
+                            </div><!-- END MEDIA-BODY -->
+                        </div><!-- END COL -->
+
+                        <div class="col-md-6">
+                            {% include 'modules/speaker-profile.twig' %}
+                        </div><!-- END COL -->
+
+                    {% endif %}
+                </div><!-- END ROW-->
+            </div><!-- END MEDIA -->
+        {% endfor %}
+
 	</div><!-- END CONTAINER -->
 </section>
+{% endif %}

@@ -1,3 +1,4 @@
+{% if clients %}
 <div id="carousel-landing" class="carousel no-mb carousel-landing slide" data-ride="carousel">
 
   {% if clients|length >4 %}
@@ -12,7 +13,7 @@
     <div class="container">
       <h2 class="carousel-title">Clientes</h2>
       <p class="carousel-description">
-          {{ function('get_custom', 'clients_call') }}
+          {{ post.clients_label }}
       </p>
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
@@ -26,3 +27,4 @@
     <a class="right carousel-control" href="#carousel-landing" role="button" data-slide="next">›</a>
     {% endif %}
 </div><!-- END CAROUSEL -->
+{% endif %}

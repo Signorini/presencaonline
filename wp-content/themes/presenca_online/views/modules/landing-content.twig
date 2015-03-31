@@ -2,13 +2,18 @@
 	<div class="container">
 		<div class="row relative">
 			<div class="col-md-8">
-				<h2 class="title-small">
-					{{ post.subtitle }}
-				</h2>
+                {% if post.subtitle  %}
+                    <h2 class="title-small">
+                        {{ post.subtitle }}
+                    </h2>
+                {% endif %}
 
+                {% if post.content  %}
 				<div class="text-main">
 					{{ post.content }}
 				</div>
+                {% endif %}
+
 			</div><!-- END COL -->
 
 			<div class="col-md-4 col-bottom-right">

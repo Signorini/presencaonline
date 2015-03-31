@@ -1,32 +1,21 @@
-<section class="extras">
-	<div class="container">
-		<h1 class="heading-h1">O que mais fazemos</h1>
+{% if landings %}
+    <section class="extras">
+        <div class="container">
+            <h1 class="heading-h1">O que mais fazemos</h1>
 
-		<div class="extras-content bg-public-management">
-			<div class="extras-content-box">
-				<p class="title">Atuação gestão pública</p>
-				<a href="#" class="news-link">
-					saiba mais >
-				</a>
-			</div>
-		</div>
+            {% for landing in landings %}
+                <a href="{{ landing.link }}" title="{{ landing.title }}">
+                <div class="extras-content" style="background-image:url({{ landing.thumbnail.src|resize(954, 360) }})">
+                    <div class="extras-content-box">
+                        <p class="title">{{ landing.title }}</p>
+                        <span class="news-link">
+                            saiba mais >
+                        </span>
+                    </div>
+                </div>
+                </a>
+            {% endfor %}
 
-		<div class="extras-content bg-corporate">
-			<div class="extras-content-box">
-				<p class="title">Atuação gestão pública</p>
-				<a href="#" class="news-link">
-					saiba mais >
-				</a>
-			</div>
-		</div>
-
-		<div class="extras-content bg-third-sector">
-			<div class="extras-content-box">
-				<p class="title">Atuação gestão pública</p>
-				<a href="#" class="news-link">
-					saiba mais >
-				</a>
-			</div>
-		</div>
-	</div>
-</section>
+        </div>
+    </section>
+{% endif %}

@@ -1,12 +1,12 @@
 <div class="media-description" href="#">
     <img class="media-object img-responsive img-circle" src="http://placehold.it/300x300" alt="foto do palestrante">
-    <h3 class="speaker-name">marcelo vitorino</h3>
+    <h3 class="speaker-name">{{ user.display_name }}</h3>
     <p class="speaker-description">
     	Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
     	Amet sapiente sequi molestiae fugiat modi ab quaerat suscipit mollitia dolor aliquid.
     </p>
     <ul class="social-list primary">
-		<li><a href="#">
+		<li><a href="{{ function('get_the_author_meta', 'facebook_url', user.ID) }}">
 			<i class="fa fa-facebook"></i>
 		</a></li>
 		<li><a href="#">

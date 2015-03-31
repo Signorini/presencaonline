@@ -1583,6 +1583,11 @@ div.wpcf7-response-output {
    left: 0;
    right: 0;
    width: 290px;
+    color:#3c3c3c;
+}
+
+.extras-content-box:hover {
+    color:#3c3c3c;
 }
 
 .extras-content-box .title {
@@ -1732,6 +1737,30 @@ div.wpcf7-response-output {
    margin: 10px 0;
 }
 
+
+/* ==========================================================================
+   =WIDGETS
+   ========================================================================== */
+.widget-title h3 {
+    background: #EE5A24;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.widget a {
+    color:#EE5A24;
+    text-decoration: underline;
+}
+
+.widget ul li {
+    list-style-type: disc;
+}
+
+.widget ol li {
+    list-style-type: lower-alpha;
+}
 /* ==========================================================================
    =HERO-OPEN-NEWS
    ========================================================================== */

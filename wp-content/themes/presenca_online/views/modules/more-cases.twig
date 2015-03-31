@@ -1,5 +1,27 @@
+{% if cases %}
 <section class="more-cases">
 	<div class="container">
-		<h2 class="more-cases-title">Veja mais cases. 15 - 30 caracteres</h2>
-        {% include 'modules/snippet-carousel-more-cases.twig' %}
+		<h2 class="more-cases-title">Veja mais cases.</h2>
+        <div id="carousel-more-cases" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner">
+                {% include 'loop/carrosel-cases.twig' %}
+            </div><!-- END CAROUSEL-INNER -->
+
+            {% if cases|length >3 %}
+                <ol class="carousel-indicators carousel-indicators-more-cases large">
+                    {% for i in 1..(cases|length/3)|ceil %}
+                        <li data-target="#carousel-more-cases" data-slide-to="{{ i-1 }}" class="{{ i==1?"active":"" }}"></li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+
+
+            {% if cases|length >3 %}
+                <a class="left carousel-control carousel-control-more-cases" href="#carousel-more-cases" role="button" data-slide="prev">‹</a>
+                <a class="right carousel-control carousel-control-more-cases" href="#carousel-more-cases" role="button" data-slide="next">›</a>
+            {% endif %}
+
+        </div><!-- END CAROUSEL -->
 </section>
+{% endif %}

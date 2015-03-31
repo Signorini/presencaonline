@@ -1,0 +1,41 @@
+{% set x=1 %}
+{% for key, case in cases %}
+
+    {% if x==1 %}
+        <div class="item {{ key==0?"active":"" }}">
+    {% endif %}
+
+    <div class="col-md-4">
+        <div class="case">
+            {% if case.youtube %}
+                <div class="responsive-video">
+                    {{ function('getEmbedLinkYoutube', case.youtube) }}
+                </div>
+            {% elseif case.box_imagem %}
+                <a href="{{ case.link }}">
+                    <img src="{{ TimberImage(case.box_imagem)|resize(298, 218) }}" class="img-responsive" alt="{{ case.title }}"/>
+                </a>
+            {% endif %}
+
+            <div class="news-content">
+                <h3 class="news-title">{{ case.title }}</h3>
+                <p class="news-text">{{ function('get_post_meta', case.id, '_yoast_wpseo_metadesc', true)|slice(0, 180) }}</p>
+                <a href="{{ case.link }}" class="news-link">
+                    saiba mais >
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% if x % 3 == 0 %}
+        </div>
+        {% set x=1 %}
+    {% else %}
+        {% set x=x+1 %}
+    {% endif %}
+
+{% endfor %}
+
+{% if x != 1 %}
+    </div> <!-- end item out caso o item não é fechado, fechase a tag-->
+{% endif %}
